@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-image: url("https://t3.ftcdn.net/jpg/01/93/30/78/360_F_193307850_Ohzn4ILra9FbnqNaEgR0Dz0iprl0crJr.jpg");
+      background-position: center;
+      background-size: cover;
+      background-attachment: fixed;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 50vh;
+    }
+    legend {
+      font-size: 20px;
+      font-weight: bold;
+      outline: 2px solid #000000b7;
+      color: #4714bdad;
+    }
+    fieldset {
+      box-sizing: border-box;
+      width: 600px;
+      background-color: rgba(36, 39, 39, 0.637);
+      border: 2px solid #000000d7;
+      font-size: 20px;
+      font-weight: bold;
+      font-family: Arial, Helvetica, sans-serif;
+      padding: 30px;
+    }
+    p {
+      color: #30a84ad3;
+      font-size: 30px;
+    }
+    label {
+      color: #8f6ee2;
+      display: block;
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+    .btnandcontr {
+      display: flex;
+      align-items: stretch;
+      gap: 10px;
+    }
+    input,
+    button {
+      font-size: 20px;
+      padding: 10px 15px;
+    }
+    input {
+      flex: 1;
+    }
+    p {
+      margin: 10px;
+      text-align: left;
+      font-size: 30px;
+    }
+  </style>
+  <body>
+    <fieldset>
+      <legend>Loop Tasks</legend>
+      <label for="number">Enter a number: </label>
+      <div class="btnandcontr">
+        <input type="number" id="number" />
+        <button
+          onclick="
+            factorialCal();
+            nrAddition();
+            sumOddNumbers();
+            sumEvenNumbers();
+          "
+        >
+          Calculate
+        </button>
+      </div>
+      <p id="output"></p>
+      <p id="output2"></p>
+      <p id="output3"></p>
+      <p id="output4"></p>
+    </fieldset>
+
+    <script>
+      function factorialCal() {
+        let number = parseInt(document.getElementById("number").value);
+        let result = 1;
+        if (number < 0) {
+          document.getElementById("output").innerText = "Unspecified";
+          return;
+        }
+        for (let i = 1; i <= number; i++) {
+          result *= i;
+        }
+        document.getElementById("output").innerText = "Factorial: " + result;
+      }
+      function nrAddition() {
+        let number = parseInt(document.getElementById("number").value);
+        let sum = 0;
+        for (let i = 1; i <= number; i++) {
+          sum += i;
+        }
+        document.getElementById("output2").innerText = "Sum of numbers: " + sum;
+      }
+      function sumOddNumbers() {
+        let number = parseInt(document.getElementById("number").value);
+        let sum = 0;
+        for (let i = 1; i <= number; i++) {
+          if (i % 2 !== 0) {
+            sum += i;
+          }
+        }
+        document.getElementById("output3").innerText =
+          "Sum of odd numbers: " + sum;
+      }
+      function sumEvenNumbers() {
+        let number = parseInt(document.getElementById("number").value);
+        let sum = 0;
+        for (let i = 1; i <= number; i++) {
+          if (i % 2 === 0) {
+            sum += i;
+          }
+        }
+        document.getElementById("output4").innerText =
+          "Sum of even numbers: " + sum;
+      }
+    </script>
+  </body>
+</html>
